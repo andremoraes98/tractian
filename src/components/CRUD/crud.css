@@ -1,0 +1,38 @@
+#unit-read {
+  background-color: white;
+  color: rgb(30 58 138);
+  border: solid 2px rgb(30 58 138);
+  transition: .2s;
+}
+
+#unit-read:hover {
+  transition: .2s;
+  background-color: rgb(30 58 138);
+  color: white;
+}
+
+#unit-create, #unit-update {
+  background-color: white;
+  color: rgb(22, 163, 74);
+  border: solid 2px rgb(22, 163, 74);
+  transition: .2s;
+}
+
+#unit-create:hover, #unit-update:hover {
+  background-color: rgb(22, 163, 74);
+  color: white;
+  transition: .2s;
+}
+
+#unit-delete {
+  background-color: white;
+  color: rgb(255,32,32);
+  border: solid 2px rgb(255,32,32);
+  transition: .2s;
+}
+
+#unit-delete:hover {
+  transition: .2s;
+  background-color: rgb(255,32,32);
+  color: white;
+}
