@@ -1,0 +1,13 @@
+.title {
+  text-align: center;
+  width: 100%;
+  font-size: 2em;
+  margin: 15px;
+  color: #007aff;
+}
+
+section {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 70px);
+}
