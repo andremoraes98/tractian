@@ -1,0 +1,19 @@
+.display-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img, header svg {
+  margin: 20px;
+  cursor: pointer;
+}
+
+header img {
+  width: 200px;
+}
+
+header svg {
+  width: 30px;
+  height: 30px;
+}
