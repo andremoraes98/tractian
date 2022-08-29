@@ -9,6 +9,18 @@
   margin: 0 15px;
 }
 
+#unit-industry {
+  background-color: rgb(30 58 138);
+  color: white;
+  border: solid 2px rgb(30 58 138);
+  transition: .2s;
+}
+
+#unit-industry:hover {
+  transition: .2s;
+  color: #007aff;
+}
+
 .unit {
   width: 40%;
   max-width: 300px;

@@ -16,6 +16,7 @@ function Unit({ unitName }) {
 
   return (
     <div
+      id="unit-industry"
       className="unit unit-flex"
       onClick={ redirectToIndustry }
     >
