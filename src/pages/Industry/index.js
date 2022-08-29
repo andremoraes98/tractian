@@ -6,10 +6,10 @@ function Industry() {
   const context = useContext(TractianContext);
 
   return (
-    <main>
+    <section className="display-flex">
       <h1 className="title">{ context.industryName }</h1>
       <CRUD />
-    </main>
+    </section >
   );
 }
 
