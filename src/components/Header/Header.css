@@ -1,7 +1,6 @@
-.display-flex {
-  display: flex;
-  align-items: center;
+header {
   justify-content: space-between;
+  border-bottom: solid black 1px;
 }
 
 header img, header svg {
