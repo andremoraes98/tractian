@@ -11,6 +11,7 @@ function CreateForms() {
   const [assetName, setAssetName] = useState('');
   const [assetModel, setAssetModel] = useState('');
   const [assetStatus, setAssetStatus] = useState('');
+  const [assetImage, setAssetImage] = useState('');
   const [assetHealthy, setAssetHealthy] = useState(0);
   const [isValidated, setIsValidated] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function CreateForms() {
         owner: industryName,
         status: assetStatus,
         helthLevel: assetHealthy,
-        image: '',
+        image: assetImage,
       });
       navigate(`/${industryName}`);
     }
@@ -85,6 +86,19 @@ function CreateForms() {
           <option value="Alerting">Alerta</option>
           <option value="Stopped">Parado</option>
         </Form.Select>
+      </FloatingLabel>
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Imagem"
+        className="m-3"
+      >
+        <Form.Control
+          required
+          type="text"
+          placeholder="Imagem"
+          value={ assetImage }
+          onChange={ ({ target }) => setAssetImage(target.value) }
+        />
       </FloatingLabel>
       <Form.Group
         className="mb-3 mx-3"
