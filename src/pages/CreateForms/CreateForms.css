@@ -1,0 +1,15 @@
+form {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-submit-button button {
+  width: 100%;
+}
+
+.form-submit-button {
+  width: 30%;
+  min-width: 100px;
+  margin: 0 auto;
+}
