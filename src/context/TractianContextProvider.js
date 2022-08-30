@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 
 function TractianContextProvider({ children }) {
   const [industryName, setIndustryName] = useState('');
+  const [showSideBar, setShowSideBar] = useState(false);
 
   const context = {
     industryName,
     setIndustryName,
+    showSideBar,
+    setShowSideBar,
   };
 
   return(
