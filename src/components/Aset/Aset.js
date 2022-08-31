@@ -21,7 +21,7 @@ function Aset({ aset, color }) {
       className= { `aset-${color} display-flex` }
       onClick={ () => navigate(`${pathName}/${id}`)}
     >
-      <p>{ `${id} - ${model} ${name}` }</p>
+      <p>{ `${id} - ${model}` } <strong>{ name }</strong>:</p>
       <div id="aset-image">
         <img src={ image }/>
       </div>
