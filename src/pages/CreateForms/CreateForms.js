@@ -10,8 +10,7 @@ function CreateForms() {
   const {
     industryName,
     setAssetInfo,
-    setShowConfirmMessage,
-    setConfirmMessage,
+    toggleConfirmMessage,
   } = useContext(TractianContext);
   const [assetName, setAssetName] = useState('');
   const [assetModel, setAssetModel] = useState('');
@@ -37,8 +36,7 @@ function CreateForms() {
         helthLevel: assetHealthy,
         image: assetImage,
       });
-      setConfirmMessage('criado');
-      setShowConfirmMessage(true);
+      toggleConfirmMessage('criado', true);
       navigate(`/${industryName}`);
     }
 
