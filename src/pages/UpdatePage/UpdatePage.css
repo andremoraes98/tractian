@@ -1,3 +1,7 @@
 .green {
   color: rgb(22, 163, 74);
 }
+
+#update-assets {
+  min-height: calc(100vh - 140px);
+}

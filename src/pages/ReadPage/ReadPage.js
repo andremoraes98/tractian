@@ -1,5 +1,5 @@
 import React from 'react';
-import Asset from '../../components/Asset/Asset';
+import Aset from '../../components/Aset/Aset';
 import './ReadPage.css'
 
 function ReadPage() {
@@ -15,25 +15,25 @@ function ReadPage() {
         id="assets"
         className="display-flex space-around"
       >
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
-        <Asset
+        <Aset
           asset={ defaultAsset }
         />
       </div>
