@@ -9,7 +9,7 @@ function Asset({ asset: { name, id } }) {
 
   return (
     <div
-      className="asset m-3"
+      className={ pathName.includes('update') ? 'asset-green m-3' : 'asset-blue m-3' }
       onClick={ () => navigate(`${pathName}/${id}`)}
     >
       <p>{ `${id} - ${name}` }</p>

@@ -1,3 +1,7 @@
 #assets {
   flex-wrap: wrap;
 }
+
+.blue {
+  color: rgb(30 58 138);
+}

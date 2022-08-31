@@ -49,7 +49,7 @@ function CreateForms() {
       validated={ isValidated }
       onSubmit={ handleSubmit }
     >
-      <h1 className="title">Insira as informações do ativo:</h1>
+      <h1 className="title green">Insira as informações do ativo:</h1>
       <FloatingLabel
         controlId="floatingInput"
         label="Nome"

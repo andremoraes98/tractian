@@ -1,8 +1,8 @@
 import React from 'react';
 import Asset from '../../components/Asset/Asset';
-import './ReadPage.css'
+import './UpdatePage.css';
 
-function ReadPage() {
+function UpdatePage() {
   const defaultAsset = {
     id: 1,
     name: 'Máquina Siemens'
@@ -10,7 +10,7 @@ function ReadPage() {
 
   return (
     <main>
-      <h1 className="title blue">Selecione o ativo que deseja <strong>Monitorar</strong>:</h1>
+      <h1 className="title green">Selecione o ativo que deseja <strong>Editar</strong>:</h1>
       <div
         id="assets"
         className="display-flex space-around"
@@ -41,4 +41,4 @@ function ReadPage() {
   )
 }
 
-export default ReadPage;
+export default UpdatePage;
