@@ -3,12 +3,14 @@
   width: 30%;
   min-width: 200px;
   max-width: 250px;
+  height: 300px;
   padding: 10px 15px;
   background-color: white;
   transition: .2s;
   cursor: pointer;
   flex-direction: column;
   margin: 10px;
+  justify-content: space-between;
 }
 
 .asset-blue {
@@ -38,6 +40,13 @@
   text-align: center;
 }
 
-#asset img {
-  width: 200px;
+#aset-image {
+  width: 190px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+#aset-image img {
+  width: 100%;
 }
