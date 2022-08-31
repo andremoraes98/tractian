@@ -1,10 +1,10 @@
 #confirm-message {
+  color: white;
   padding: 15px 30px;
   border: 1px solid black;
   border-radius: 10px;
-  margin-top: 15px;
-  position: absolute;
-  top: 50px;
+  position: fixed;
+  top: 15px;
 }
 
 .bg-green {
