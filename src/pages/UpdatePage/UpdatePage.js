@@ -26,6 +26,7 @@ function UpdatePage() {
                 <Aset
                   key={ asset.id }
                   asset={asset}
+                  color="green"
                 />
               ))
             }

@@ -26,6 +26,7 @@ function ReadPage() {
                 <Aset
                   key={ asset.id }
                   asset={asset}
+                  color="blue"
                 />
               ))
             }
