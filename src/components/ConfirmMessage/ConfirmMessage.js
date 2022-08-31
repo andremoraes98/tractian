@@ -9,7 +9,7 @@ function ConfirmMessage() {
     <Fade in={ showConfirmMessage }>
       <div
         id="confirm-message"
-        className={ confirmMessage === 'excluído' ? 'bg-red' : 'bg-green'}
+        className={ confirmMessage === 'excluído' ? 'bg-red m-3' : 'bg-green m-3'}
       >
         <p>O ativo <strong>{ name }</strong> foi { confirmMessage } com sucesso!</p>
       </div>
