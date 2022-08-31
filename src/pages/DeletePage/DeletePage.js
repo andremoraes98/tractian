@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Aset from '../../components/Aset/Aset';
 import TractianContext from '../../context/TractianContext';
 import './DeletePage.css'
 
 function DeletePage() {
-  const { assets } = useContext(TractianContext);
+  const { assets, getAssets } = useContext(TractianContext);
+
+  useEffect(() => {
+    getAssets();
+  }, []);
 
   return (
     <main id="update-assets">
