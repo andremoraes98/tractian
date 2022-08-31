@@ -1,4 +1,4 @@
-.asset-blue, .asset-green {
+.aset-blue, .aset-green, .aset-red {
   border-radius: 10px;
   width: 30%;
   min-width: 200px;
@@ -13,29 +13,40 @@
   justify-content: space-between;
 }
 
-.asset-blue {
+.aset-blue {
   color: rgb(30 58 138);
   border: solid 2px rgb(30 58 138);
 }
 
-.asset-blue:hover {
+.aset-blue:hover {
   transition: .2s;
   background-color: rgb(30 58 138);
   color: white;
 }
 
-.asset-green {
+.aset-green {
   color: rgb(22, 163, 74);
   border: solid 2px rgb(22, 163, 74);
 }
 
-.asset-green:hover {
+.aset-green:hover {
   transition: .2s;
   background-color: rgb(22, 163, 74);
   color: white;
 }
 
-.asset-blue p, .asset-green p {
+.aset-red {
+  color: rgb(255,32,32);
+  border: solid 2px rgb(255,32,32);
+}
+
+.aset-red:hover {
+  transition: .2s;
+  background-color: rgb(255,32,32);
+  color: white;
+}
+
+.aset-blue p, .aset-green p {
   margin: 0;
   text-align: center;
 }
