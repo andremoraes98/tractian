@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './Aset.css';
 import { useNavigate,  } from 'react-router-dom';
+import TractianContext from '../../context/TractianContext';
 
 function Aset({ aset, color }) {
+  const { setShowDeleteMessage, setAssetInfo } = useContext(TractianContext)
   const {
     id,
     name,
@@ -15,11 +17,26 @@ function Aset({ aset, color }) {
   const navigate = useNavigate();
   const pathName = window.location.pathname;
 
+  const onClickAction = () => {
+    setAssetInfo({
+      id,
+      name,
+      model,
+      status,
+      helthLevel,
+      image,
+    })
+    if (!pathName.includes('delete')) {
+      return navigate(`${pathName}/${id}`);
+    }
+    setShowDeleteMessage(true);
+  }
+
   return (
     <div
       id='aset'
       className= { `aset-${color} display-flex` }
-      onClick={ () => navigate(`${pathName}/${id}`)}
+      onClick={ onClickAction }
     >
       <p>{ `${id} - ${model}` } <strong>{ name }</strong>:</p>
       <div id="aset-image">
