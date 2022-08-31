@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import Asset from '../../components/Aset/Aset';
+import Aset from '../../components/Aset/Aset';
 import Loading from '../../components/Loading/Loading';
 import TractianContext from '../../context/TractianContext';
 import './UpdatePage.css';
@@ -23,7 +23,7 @@ function UpdatePage() {
           >
             {
               assets.map((asset) => (
-                <Asset
+                <Aset
                   key={ asset.id }
                   asset={asset}
                 />
