@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Asset.css';
+import './Aset.css';
 import { useNavigate,  } from 'react-router-dom';
 
 function Asset({ asset }) {
