@@ -6,6 +6,8 @@ function TractianContextProvider({ children }) {
   const [industryName, setIndustryName] = useState('');
   const [showSideBar, setShowSideBar] = useState(false);
   const [assetInfo, setAssetInfo] = useState({});
+  const [showConfirmMessage, setShowConfirmMessage] = useState(false);
+  const [confirmMessage, setConfirmMessage] = useState('');
 
   const context = {
     industryName,
@@ -14,6 +16,10 @@ function TractianContextProvider({ children }) {
     setShowSideBar,
     assetInfo,
     setAssetInfo,
+    showConfirmMessage,
+    setShowConfirmMessage,
+    confirmMessage,
+    setConfirmMessage,
   };
 
   return(
