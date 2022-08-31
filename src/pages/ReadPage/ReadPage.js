@@ -10,7 +10,7 @@ function ReadPage() {
 
   return (
     <main>
-      <h1 className="title">Selecione o ativo que deseja monitorar:</h1>
+      <h1 className="title blue">Selecione o ativo que deseja <strong>Monitorar</strong>:</h1>
       <div
         id="assets"
         className="display-flex space-around"
