@@ -4,10 +4,10 @@ import CRUD from '../../components/CRUD';
 import TractianContext from '../../context/TractianContext';
 
 function Industry() {
-  const { industryName, toggleConfirmMessage } = useContext(TractianContext);
+  const { industryName, setShowConfirmMessage } = useContext(TractianContext);
 
   useEffect(() => {
-    const intervalConfirmMessage = setInterval(() => toggleConfirmMessage('', false), 3000);
+    const intervalConfirmMessage = setInterval(() => setShowConfirmMessage('', false), 3000);
     return () => clearInterval(intervalConfirmMessage)
   });
 
