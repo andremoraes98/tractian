@@ -5,7 +5,7 @@ function Delete() {
   return (
     <div
       id="unit-delete"
-      className="unit unit-flex bg-red"
+      className="unit unit-flex"
     >
       <h1 className="unit-title">Deletar</h1>
       <AiFillDelete className="simbol-unit" />
