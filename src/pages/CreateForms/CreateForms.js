@@ -7,7 +7,12 @@ import TractianContext from '../../context/TractianContext';
 import './CreateForms.css'
 
 function CreateForms() {
-  const { industryName, setAssetInfo } = useContext(TractianContext);
+  const {
+    industryName,
+    setAssetInfo,
+    setShowConfirmMessage,
+    setConfirmMessage,
+  } = useContext(TractianContext);
   const [assetName, setAssetName] = useState('');
   const [assetModel, setAssetModel] = useState('');
   const [assetStatus, setAssetStatus] = useState('');
@@ -32,6 +37,8 @@ function CreateForms() {
         helthLevel: assetHealthy,
         image: assetImage,
       });
+      setConfirmMessage('criado');
+      setShowConfirmMessage(true);
       navigate(`/${industryName}`);
     }
 
