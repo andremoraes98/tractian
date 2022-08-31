@@ -18,9 +18,5 @@
 #confirm-message p {
   margin: 0;
   font-size: 20px;
-}
-
-#confirm-message p {
-  margin: 0;
-  font-size: 20px;
+  text-align: center;
 }
