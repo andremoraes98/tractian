@@ -16,3 +16,7 @@ code {
   display: flex;
   align-items: center;
 }
+
+.space-around {
+  justify-content: space-around;
+}
