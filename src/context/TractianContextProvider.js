@@ -10,6 +10,7 @@ function TractianContextProvider({ children }) {
   const [confirmMessage, setConfirmMessage] = useState('');
   const [assets, setAssets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showAlertMessage, setShowAlertMessage] = useState(false);
   
 
   const toggleConfirmMessage = (message, willConfirmMessageShow) => {
@@ -98,6 +99,8 @@ function TractianContextProvider({ children }) {
     getAssets,
     isLoading,
     setIsLoading,
+    showAlertMessage,
+    setShowAlertMessage,
   };
 
   return(
