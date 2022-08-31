@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Aset.css';
 import { useNavigate,  } from 'react-router-dom';
 
-function Asset({ asset }) {
+function Asset({ asset, color }) {
   const {
     id,
     name,
@@ -18,13 +18,13 @@ function Asset({ asset }) {
   return (
     <div
       id='asset'
-      className={ pathName.includes('update')
-        ? 'asset-green display-flex'
-        : 'asset-blue display-flex' }
+      className= { `asset-${color} display-flex` }
       onClick={ () => navigate(`${pathName}/${id}`)}
     >
       <p>{ `${id} - ${model} ${name}` }</p>
-      <img src={ image }/>
+      <div id="aset-image">
+        <img src={ image }/>
+      </div>
       <p>{ `${status} com ${helthLevel}% de saúde.` }</p>
     </div>
   )
@@ -39,6 +39,7 @@ Asset.propTypes = {
     helthLevel: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
+  color: PropTypes.string.isRequired,
 }
 
 export default Asset;
