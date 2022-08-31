@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Aset.css';
 import { useNavigate,  } from 'react-router-dom';
 
-function Asset({ asset, color }) {
+function Aset({ aset, color }) {
   const {
     id,
     name,
@@ -11,14 +11,14 @@ function Asset({ asset, color }) {
     status,
     helthLevel,
     image,
-  } = asset;
+  } = aset;
   const navigate = useNavigate();
   const pathName = window.location.pathname;
 
   return (
     <div
-      id='asset'
-      className= { `asset-${color} display-flex` }
+      id='aset'
+      className= { `aset-${color} display-flex` }
       onClick={ () => navigate(`${pathName}/${id}`)}
     >
       <p>{ `${id} - ${model} ${name}` }</p>
@@ -30,8 +30,8 @@ function Asset({ asset, color }) {
   )
 }
 
-Asset.propTypes = {
-  asset: PropTypes.shape({
+Aset.propTypes = {
+  aset: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     model: PropTypes.string.isRequired,
@@ -42,4 +42,4 @@ Asset.propTypes = {
   color: PropTypes.string.isRequired,
 }
 
-export default Asset;
+export default Aset;
