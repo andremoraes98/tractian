@@ -12,6 +12,9 @@ function TractianContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [showAlertMessage, setShowAlertMessage] = useState(false);
   const [showDeleteMessage, setShowDeleteMessage] = useState(false);
+  const [showTemperatureGraphic, setShowTemperatureGraphic] = useState(false);
+  const [showEnergyGraphic, setShowEnergyGraphic] = useState(false);
+  const [showVibrationGraphic, setShowVibrationGraphic] = useState(false);
   
 
   const toggleConfirmMessage = (message, willConfirmMessageShow) => {
@@ -105,6 +108,12 @@ function TractianContextProvider({ children }) {
     setShowAlertMessage,
     showDeleteMessage,
     setShowDeleteMessage,
+    showTemperatureGraphic,
+    setShowTemperatureGraphic,
+    showEnergyGraphic,
+    setShowEnergyGraphic,
+    showVibrationGraphic,
+    setShowVibrationGraphic,
   };
 
   return(
