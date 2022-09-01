@@ -5,6 +5,7 @@ import Header from './components/Header';
 import SideBar from './components/SideBar';
 import CreateForms from './pages/CreateForms/CreateForms';
 import DeletePage from './pages/DeletePage/DeletePage';
+import Graphics from './pages/Graphics/Graphics';
 import Industry from './pages/Industry';
 import Main from './pages/Main';
 import ReadPage from './pages/ReadPage/ReadPage';
@@ -18,6 +19,7 @@ function App() {
       <SideBar />
       <Routes>
         <Route path="/create" element={ <CreateForms /> }/>
+        <Route path="/read/:id" element={ <Graphics /> }/>
         <Route path="/read" element={ <ReadPage /> }/>
         <Route path="/update/:id" element={ <UpdateForms /> }/>
         <Route path="/update" element={ <UpdatePage /> }/>
