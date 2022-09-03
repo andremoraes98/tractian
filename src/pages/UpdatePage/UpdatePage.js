@@ -22,11 +22,12 @@ function UpdatePage() {
             className="display-flex space-around"
           >
             {
-              assets.map((aset) => (
+              assets.map((aset, index) => (
                 <Aset
-                  key={ aset.id }
+                  key={ index }
                   aset={aset}
                   color="green"
+                  id={ index + 1 }
                 />
               ))
             }
