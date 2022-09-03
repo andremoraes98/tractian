@@ -4,10 +4,9 @@ import './Aset.css';
 import { useNavigate,  } from 'react-router-dom';
 import TractianContext from '../../context/TractianContext';
 
-function Aset({ aset, color }) {
+function Aset({ id, aset, color }) {
   const { setShowDeleteMessage, setAssetInfo } = useContext(TractianContext)
   const {
-    id,
     name,
     model,
     status,
@@ -17,9 +16,14 @@ function Aset({ aset, color }) {
   const navigate = useNavigate();
   const pathName = window.location.pathname;
 
+  const statusHealth = {
+    Running: 'Funcionando',
+    Alerting: 'Em Alerta, ',
+    Stopped: 'Parado',
+  }
+
   const onClickAction = () => {
     setAssetInfo({
-      id,
       name,
       model,
       status,
@@ -42,14 +46,14 @@ function Aset({ aset, color }) {
       <div id="aset-image">
         <img src={ image }/>
       </div>
-      <p>{ `${status} com ${helthLevel}% de saúde.` }</p>
+      <p>{ `${statusHealth[status]} com ${helthLevel}% de saúde.` }</p>
     </div>
   )
 }
 
 Aset.propTypes = {
+  id: PropTypes.number.isRequired,
   aset: PropTypes.shape({
-    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     model: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,

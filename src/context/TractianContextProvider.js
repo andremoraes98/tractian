@@ -22,72 +22,26 @@ function TractianContextProvider({ children }) {
     setConfirmMessage(message);
   };
 
-  const getAssets = () => {
+  const getAssets = async () => {
     setIsLoading(true);
-    setAssets([
-      {
-        id: 1,
-        name: 'TM103',
-        model: 'Siemens',
-        owner: 'Industria Freios Supremos 1',
-        status: 'Running',
-        helthLevel: '90',
-        image: 'https://assets.new.siemens.com/siemens/assets/api/uuid:4eeebb1d-1ae3-4103-99e2-d8d63a1776e6/width:1125/quality:high/simotics-gp-vsd-10-line.png',
-        energy: [],
-        temp: [],
-        vibration: [],
-      },
-      {
-        id: 2,
-        name: 'SL203',
-        model: 'Siemens',
-        owner: 'Industria Freios Supremos 1',
-        status: 'Running',
-        helthLevel: '90',
-        image: 'https://static.weg.net/medias/images/h64/hb9/MKT_WMO_BR_TEXT_IMAGE_W22_10_12_Polos_515Wx515H.webp',
-        energy: [],
-        temp: [],
-        vibration: [],
-      },
-      {
-        id: 3,
-        name: 'HT107',
-        model: 'Siemens',
-        owner: 'Industria Freios Supremos 1',
-        status: 'Running',
-        helthLevel: '90',
-        image: 'https://www.solucoesindustriais.com.br/images/produtos/imagens_11329/thumbnails/350/motores-eletricos-weg_11329_219772_1567785851336_cover.jpg',
-        energy: [],
-        temp: [],
-        vibration: [],
-      },
-      {
-        id: 4,
-        name: 'MU503',
-        model: 'Siemens',
-        owner: 'Industria Freios Supremos 1',
-        status: 'Running',
-        helthLevel: '90',
-        image: 'https://assets.new.siemens.com/siemens/assets/api/uuid:4eeebb1d-1ae3-4103-99e2-d8d63a1776e6/width:1125/quality:high/simotics-gp-vsd-10-line.png',
-        energy: [],
-        temp: [],
-        vibration: [],
-      },
-      {
-        id: 5,
-        name: 'TM502',
-        model: 'Siemens',
-        owner: 'Industria Freios Supremos 1',
-        status: 'Running',
-        helthLevel: '90',
-        image: 'https://assets.new.siemens.com/siemens/assets/api/uuid:4eeebb1d-1ae3-4103-99e2-d8d63a1776e6/width:1125/quality:high/simotics-gp-vsd-10-line.png',
-        energy: [],
-        temp: [],
-        vibration: [],
-      },
-    ]);
+    const response = await fetch('https://tractian-bc.herokuapp.com/aset');
+    const data = await response.json();
+    setAssets(data);
     setIsLoading(false);
   };
+
+  const createAsset = async (asset) => {
+    try {
+      console.log(asset)
+      await fetch('https://tractian-bc.herokuapp.com/aset', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(asset),
+      });
+    } catch(e) {
+      console.log(e.message)
+    }
+  }
 
   const context = {
     industryName,
@@ -102,6 +56,7 @@ function TractianContextProvider({ children }) {
     toggleConfirmMessage,
     assets,
     getAssets,
+    createAsset,
     isLoading,
     setIsLoading,
     showAlertMessage,
