@@ -17,9 +17,22 @@ function CreateForms() {
   const [assetModel, setAssetModel] = useState('');
   const [assetStatus, setAssetStatus] = useState('');
   const [assetImage, setAssetImage] = useState('');
+  const [temperatureLimit, setTemperatureLimit] = useState('');
+  const [energyLimit, setEnergyLimit] = useState('');
+  const [vibrationLimit, setVibrationLimit] = useState('');
   const [assetHealthy, setAssetHealthy] = useState('0');
   const [isValidated, setIsValidated] = useState(false);
   const navigate = useNavigate();
+
+  const createObjectOfData = (limit) => {
+    const arrayLenght = 30;
+    const data = new Array(arrayLenght).fill(0);
+
+    return {
+      limit,
+      data
+    }
+  }
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
@@ -30,9 +43,9 @@ function CreateForms() {
       status: assetStatus,
       helthLevel: assetHealthy,
       image: assetImage,
-      energy: [0],
-      temp: [0],
-      vibration: [0],
+      energy: createObjectOfData(energyLimit),
+      temp: createObjectOfData(temperatureLimit),
+      vibration: createObjectOfData(vibrationLimit),
       createdAt: new Date(),
       updatedAt: new Date(),
     }
@@ -71,6 +84,7 @@ function CreateForms() {
           onChange={ ({ target }) => setAssetName(target.value) }
         />
       </FloatingLabel>
+
       <FloatingLabel
         controlId="floatingInput"
         label="Modelo"
@@ -84,6 +98,7 @@ function CreateForms() {
           onChange={ ({ target }) => setAssetModel(target.value) }
         />
       </FloatingLabel>
+
       <FloatingLabel
         controlId="floatingInput"
         label="Status"
@@ -100,6 +115,49 @@ function CreateForms() {
           <option value="Stopped">Parado</option>
         </Form.Select>
       </FloatingLabel>
+      
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Temperatura Nominal (ºC)"
+        className="m-3"
+      >
+        <Form.Control
+          required
+          type="text"
+          placeholder="Temperatura Nominal (ºC)"
+          value={ temperatureLimit }
+          onChange={ ({ target }) => setTemperatureLimit(target.value) }
+        />
+      </FloatingLabel>
+      
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Potência Nominal (kW)"
+        className="m-3"
+      >
+        <Form.Control
+          required
+          type="text"
+          placeholder="Potência Nominal (kW)"
+          value={ energyLimit }
+          onChange={ ({ target }) => setEnergyLimit(target.value) }
+        />
+      </FloatingLabel>
+      
+      <FloatingLabel
+        controlId="floatingInput"
+        label="Vibração tolerável (mm/s.RMS)"
+        className="m-3"
+      >
+        <Form.Control
+          required
+          type="text"
+          placeholder="Vibração tolerável (mm/s.RMS)"
+          value={ vibrationLimit }
+          onChange={ ({ target }) => setVibrationLimit(target.value) }
+        />
+      </FloatingLabel>
+      
       <FloatingLabel
         controlId="floatingInput"
         label="Imagem"
@@ -113,6 +171,7 @@ function CreateForms() {
           onChange={ ({ target }) => setAssetImage(target.value) }
         />
       </FloatingLabel>
+
       <Form.Group
         className="mb-3 mx-3"
       >
