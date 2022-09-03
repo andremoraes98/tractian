@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import TractianContext from '../../../context/TractianContext';
+import { useParams } from 'react-router-dom';
 
 function Vibration() {
+  const { assets } = useContext(TractianContext);
+  const { id } = useParams();
+  const { vibration, createdAt } = assets[id - 1]
   const options = {
     accessibility: {
       enabled: true,
@@ -38,7 +43,7 @@ function Vibration() {
         label: {
           connectorAllowed: false
         },
-        pointStart: Date.UTC(2022, 6),
+        pointStart: Date.UTC(createdAt),
         pointInterval: (24 * 3600 * 1000)
       },
     },
@@ -50,7 +55,7 @@ function Vibration() {
         enabled: false,
         symbol: 'circle'
       },
-      data: [30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 40, 45, 30, 55, 60]
+      data: vibration
     }, {
       type: 'line',
       name: 'Limite tolerável',
