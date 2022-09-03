@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 function Temperature() {
   const { assets } = useContext(TractianContext);
   const { id } = useParams();
-  const { temp, createdAt } = assets[id - 1]
+  const { temp: { data, limit }, createdAt } = assets[id - 1];
   const options = {
     accessibility: {
       enabled: true,
@@ -34,16 +34,16 @@ function Temperature() {
       type: 'datetime'
     },
     legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'middle'
+      layout: 'horizontal',
+      align: 'center',
+      verticalAlign: 'bottom'
     },
     plotOptions: {
       series: {
         label: {
           connectorAllowed: false
         },
-        pointStart: Date.UTC(createdAt),
+        pointStart: Date.parse(createdAt),
         pointInterval: (24 * 3600 * 1000)
       },
     },
@@ -55,7 +55,7 @@ function Temperature() {
         enabled: false,
         symbol: 'circle'
       },
-      data: temp
+      data
     }, {
       type: 'line',
       name: 'Limite tolerável',
@@ -65,12 +65,12 @@ function Temperature() {
         enabled: false,
         symbol: 'circle'
       },
-      data: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50]
+      data: limit
     }],
     responsive: {
       rules: [{
         condition: {
-          maxWidth: 400
+          maxWidth: 200
         },
         chartOptions: {
           legend: {
