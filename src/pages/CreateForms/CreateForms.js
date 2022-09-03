@@ -11,6 +11,7 @@ function CreateForms() {
     industryName,
     setAssetInfo,
     toggleConfirmMessage,
+    createAsset,
   } = useContext(TractianContext);
   const [assetName, setAssetName] = useState('');
   const [assetModel, setAssetModel] = useState('');
@@ -22,20 +23,27 @@ function CreateForms() {
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
+    const createdAsset = {
+      name: assetName,
+      model: assetModel,
+      owner: industryName,
+      status: assetStatus,
+      helthLevel: assetHealthy,
+      image: assetImage,
+      energy: [0],
+      temp: [0],
+      vibration: [0],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }
 
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
     } else {
       e.preventDefault();
-      setAssetInfo({
-        name: assetName,
-        model: assetModel,
-        owner: industryName,
-        status: assetStatus,
-        helthLevel: assetHealthy,
-        image: assetImage,
-      });
+      setAssetInfo(createdAsset);
+      createAsset(createdAsset);
       toggleConfirmMessage('criado', true);
       navigate(`/${industryName}`);
     }

@@ -22,11 +22,12 @@ function ReadPage() {
             className="display-flex space-around"
           >
             {
-              assets.map((aset) => (
+              assets.map((aset, index) => (
                 <Aset
-                  key={ aset.id }
-                  aset={aset}
+                  key={ index + 1 }
+                  aset={ aset }
                   color="blue"
+                  id={ index + 1 }
                 />
               ))
             }
