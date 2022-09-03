@@ -20,3 +20,8 @@ code {
 .space-around {
   justify-content: space-around;
 }
+
+#graphic {
+  border: solid 1px #6c757d;;
+  margin: 15px;
+}
