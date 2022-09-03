@@ -53,6 +53,18 @@ function TractianContextProvider({ children }) {
     }
   }
 
+  const updateAsset = async (id, asset) => {
+    try {
+      await fetch(`https://tractian-bc.herokuapp.com/aset/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(asset),
+      });
+    } catch(e) {
+      console.log(e.message)
+    }
+  };
+
   const context = {
     industryName,
     setIndustryName,
@@ -68,6 +80,7 @@ function TractianContextProvider({ children }) {
     getAssets,
     createAsset,
     deleteAsset,
+    updateAsset,
     isLoading,
     setIsLoading,
     showAlertMessage,
