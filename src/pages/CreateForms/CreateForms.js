@@ -24,13 +24,13 @@ function CreateForms() {
   const [isValidated, setIsValidated] = useState(false);
   const navigate = useNavigate();
 
-  const createObjectOfData = (limit) => {
+  const createObjectOfData = (limitNumber) => {
     const arrayLenght = 30;
     const data = new Array(arrayLenght).fill(0);
-    const limitArray = new Array(arrayLenght).fill(limit);
+    const limit = new Array(arrayLenght).fill(limitNumber);
 
     return {
-      limitArray,
+      limit,
       data
     }
   }
