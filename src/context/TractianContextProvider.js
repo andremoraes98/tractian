@@ -32,11 +32,21 @@ function TractianContextProvider({ children }) {
 
   const createAsset = async (asset) => {
     try {
-      console.log(asset)
       await fetch('https://tractian-bc.herokuapp.com/aset', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(asset),
+      });
+    } catch(e) {
+      console.log(e.message)
+    }
+  };
+
+  const deleteAsset = async (id) => {
+    try {
+      await fetch(`https://tractian-bc.herokuapp.com/aset/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
       });
     } catch(e) {
       console.log(e.message)
@@ -57,6 +67,7 @@ function TractianContextProvider({ children }) {
     assets,
     getAssets,
     createAsset,
+    deleteAsset,
     isLoading,
     setIsLoading,
     showAlertMessage,

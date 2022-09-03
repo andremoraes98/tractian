@@ -10,10 +10,13 @@ function DeleteMessage() {
     setShowDeleteMessage, 
     toggleConfirmMessage,
     industryName,
+    deleteAsset,
+    assetInfo,
   } = useContext(TractianContext);
   const navigate = useNavigate();
 
   const onSuccess = () => {
+    deleteAsset(assetInfo._id)
     setShowDeleteMessage(false);
     toggleConfirmMessage('excluído', true);
     navigate(`/${industryName}`);
@@ -29,7 +32,10 @@ function DeleteMessage() {
         <Button variant="warning" onClick={() => setShowDeleteMessage(false)}>
           Cancelar
         </Button>
-        <Button variant="danger" onClick={ onSuccess }>
+        <Button
+          variant="danger"
+          onClick={ onSuccess }
+        >
           Excluir
         </Button>
       </Modal.Footer>
