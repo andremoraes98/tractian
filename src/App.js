@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
-import Header from './components/Header';
-import SideBar from './components/SideBar';
+import Header from './components/Header/Header';
+import SideBar from './components/SideBar/SideBar';
 import CreateForms from './pages/CreateForms/CreateForms';
 import DeletePage from './pages/DeletePage/DeletePage';
 import Graphics from './pages/Graphics/Graphics';
-import Industry from './pages/Industry';
-import Main from './pages/Main';
+import Industry from './pages/Industry/Industry';
+import Main from './pages/Main/Main';
 import ReadPage from './pages/ReadPage/ReadPage';
 import UpdateForms from './pages/UpdateForms/UpdateForms';
 import UpdatePage from './pages/UpdatePage/UpdatePage';
