@@ -27,9 +27,10 @@ function CreateForms() {
   const createObjectOfData = (limit) => {
     const arrayLenght = 30;
     const data = new Array(arrayLenght).fill(0);
+    const limitArray = new Array(arrayLenght).fill(limit);
 
     return {
-      limit,
+      limitArray,
       data
     }
   }
