@@ -7,6 +7,7 @@ import TractianContext from '../../context/TractianContext';
 function Aset({ id, aset, color }) {
   const { setShowDeleteMessage, setAssetInfo } = useContext(TractianContext)
   const {
+    _id,
     name,
     model,
     status,
@@ -24,6 +25,7 @@ function Aset({ id, aset, color }) {
 
   const onClickAction = () => {
     setAssetInfo({
+      _id,
       name,
       model,
       status,
@@ -54,6 +56,7 @@ function Aset({ id, aset, color }) {
 Aset.propTypes = {
   id: PropTypes.number.isRequired,
   aset: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     model: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
