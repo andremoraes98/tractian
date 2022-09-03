@@ -17,7 +17,7 @@ function CreateForms() {
   const [assetModel, setAssetModel] = useState('');
   const [assetStatus, setAssetStatus] = useState('');
   const [assetImage, setAssetImage] = useState('');
-  const [assetHealthy, setAssetHealthy] = useState(0);
+  const [assetHealthy, setAssetHealthy] = useState('0');
   const [isValidated, setIsValidated] = useState(false);
   const navigate = useNavigate();
 
@@ -119,8 +119,8 @@ function CreateForms() {
         <Form.Label>{ `Saúde: ${assetHealthy}%` }</Form.Label>
         <Form.Range
           required
-          min={ 1 }
-          max={ 100 }
+          min="1"
+          max="100"
           value={ assetHealthy }
           onChange={ ({ target }) => setAssetHealthy(target.value) }
         />
