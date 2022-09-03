@@ -12,6 +12,7 @@ function UpdateForms() {
     setAssetInfo,
     assets,
     setShowAlertMessage,
+    assetInfo,
   } = useContext(TractianContext);
   const { id } = useParams();
   const {
@@ -20,12 +21,12 @@ function UpdateForms() {
     status,
     image,
     helthLevel
-  } = assets[id -1]
+  } = assets[id - 1]
   const [assetName, setAssetName] = useState(name);
   const [assetModel, setAssetModel] = useState(model);
   const [assetStatus, setAssetStatus] = useState(status);
   const [assetImage, setAssetImage] = useState(image);
-  const [assetHealthy, setAssetHealthy] = useState(Number(helthLevel));
+  const [assetHealthy, setAssetHealthy] = useState(helthLevel);
   const [isValidated, setIsValidated] = useState(false);
 
   const handleSubmit = (e) => {
@@ -37,6 +38,7 @@ function UpdateForms() {
     } else {
       e.preventDefault();
       setAssetInfo({
+        ...assetInfo,
         name: assetName,
         model: assetModel,
         owner: industryName,
@@ -118,8 +120,8 @@ function UpdateForms() {
           <Form.Label>{ `Saúde: ${assetHealthy}%` }</Form.Label>
           <Form.Range
             required
-            min={ 1 }
-            max={ 100 }
+            min="1"
+            max="100"
             value={ assetHealthy }
             onChange={ ({ target }) => setAssetHealthy(target.value) }
           />

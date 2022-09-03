@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import TractianContext from '../../context/TractianContext';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function AlertMessage() {
   const { 
@@ -10,11 +11,33 @@ function AlertMessage() {
     setShowAlertMessage, 
     toggleConfirmMessage,
     industryName,
+    assets,
+    updateAsset,
+    assetInfo,
   } = useContext(TractianContext);
+  const { id } = useParams();
   const navigate = useNavigate();
+  const {
+    name,
+    model,
+    status,
+    image,
+    helthLevel
+  } = assetInfo
+
+  const updatedAset = {
+    ...assets[id - 1],
+    name,
+    model,
+    status,
+    image,
+    helthLevel,
+    updatedAt: new Date(),
+  }
 
   const onSuccess = () => {
     setShowAlertMessage(false);
+    updateAsset(assetInfo._id, updatedAset)
     toggleConfirmMessage('atualizado', true);
     navigate(`/${industryName}`);
   };
