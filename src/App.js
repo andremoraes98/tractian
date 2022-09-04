@@ -18,13 +18,13 @@ function App() {
       <Header />
       <SideBar />
       <Routes>
-        <Route path="/create" element={ <CreateForms /> }/>
-        <Route path="/read/:id" element={ <Graphics /> }/>
-        <Route path="/read" element={ <ReadPage /> }/>
-        <Route path="/update/:id" element={ <UpdateForms /> }/>
-        <Route path="/update" element={ <UpdatePage /> }/>
-        <Route path="/delete" element={ <DeletePage /> }/>
-        <Route path="/:industry" element={ <Industry /> }/>
+        <Route path="/:unit/create" element={ <CreateForms /> }/>
+        <Route path="/:unit/read/:id" element={ <Graphics /> }/>
+        <Route path="/:unit/read" element={ <ReadPage /> }/>
+        <Route path="/:unit/update/:id" element={ <UpdateForms /> }/>
+        <Route path="/:unit/update" element={ <UpdatePage /> }/>
+        <Route path="/:unit/delete" element={ <DeletePage /> }/>
+        <Route path="/:unit" element={ <Industry /> }/>
         <Route path="/" element={ <Main /> }/>
       </Routes>
       <Footer />

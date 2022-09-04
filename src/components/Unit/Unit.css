@@ -18,7 +18,7 @@
 
 #unit-industry:hover {
   transition: .2s;
-  color: #007aff;
+  color: rgb(22, 163, 74);
 }
 
 .unit {
@@ -36,6 +36,6 @@
 }
 
 .simbol-unit {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
 }

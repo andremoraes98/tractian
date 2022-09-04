@@ -2,29 +2,29 @@ import React, { useContext } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import TractianContext from '../../context/TractianContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function DeleteMessage() {
   const { 
     showDeleteMessage,
     setShowDeleteMessage, 
     toggleConfirmMessage,
-    industryName,
     deleteAsset,
     assetInfo,
   } = useContext(TractianContext);
   const navigate = useNavigate();
+  const { unit } = useParams();
 
   const onSuccess = () => {
     deleteAsset(assetInfo._id)
     setShowDeleteMessage(false);
     toggleConfirmMessage('excluído', true);
-    navigate(`/${industryName}`);
+    navigate(`/${unit}`);
   };
 
   return (
     <Modal show={ showDeleteMessage } onHide={ () => setShowDeleteMessage(true) }>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Tem certeza que deseja excluir esse ativo?</Modal.Title>
       </Modal.Header>
       <Modal.Body>Uma vez confirmada, não há como restaurar os dados deste ativo.</Modal.Body>

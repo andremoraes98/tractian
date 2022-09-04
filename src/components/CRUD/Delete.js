@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 function Delete() {
   const navigate = useNavigate();
+  const pathName = window.location.pathname;
 
   return (
     <div
       id="unit-delete"
       className="unit unit-flex"
-      onClick={ () => navigate('/delete') }
+      onClick={ () => navigate(`${pathName}/delete`) }
     >
       <h1 className="unit-title">Deletar</h1>
       <AiFillDelete className="simbol-unit" />

@@ -1,17 +1,14 @@
-import React, { useContext } from 'react';
-import TractianContext from '../../context/TractianContext';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom'
-import { FaIndustry } from 'react-icons/fa';
+import { BsPersonCheckFill } from 'react-icons/bs';
 import './Unit.css';
 
-function Unit({ unitName }) {
+function Unit({ credentials: { user, unit } }) {
   const navigate = useNavigate();
-  const context = useContext(TractianContext);
 
   const redirectToIndustry = () => {
-    context.setIndustryName(unitName);
-    navigate(`/${unitName}`);
+    navigate(`/${unit}`);
   }
 
   return (
@@ -20,14 +17,17 @@ function Unit({ unitName }) {
       className="unit unit-flex"
       onClick={ redirectToIndustry }
     >
-      <h1 className="unit-title">{ unitName }</h1>
-      <FaIndustry className="simbol-unit" />
+      <h1 className="unit-title">{ user }</h1>
+      <BsPersonCheckFill className="simbol-unit" />
     </div>
   );
 }
 
 Unit.propTypes = {
-  unitName: PropTypes.string.isRequired,
+  credentials: PropTypes.shape({
+    user: PropTypes.string.isRequired,
+    unit: PropTypes.string.isRequired,
+  }).isRequired
 };
 
 export default Unit;

@@ -3,7 +3,7 @@ import TractianContext from './TractianContext';
 import PropTypes from 'prop-types';
 
 function TractianContextProvider({ children }) {
-  const [industryName, setIndustryName] = useState('');
+  const [users, setUsers] = useState([]);
   const [showSideBar, setShowSideBar] = useState(false);
   const [assetInfo, setAssetInfo] = useState({});
   const [showConfirmMessage, setShowConfirmMessage] = useState(false);
@@ -65,9 +65,17 @@ function TractianContextProvider({ children }) {
     }
   };
 
+  const getUsers = async () => {
+    setIsLoading(true);
+    const response = await fetch('https://tractian-bc.herokuapp.com/user');
+    const data = await response.json();
+    setUsers(data);
+    setIsLoading(false);
+  };
+
   const context = {
-    industryName,
-    setIndustryName,
+    users,
+    getUsers,
     showSideBar,
     setShowSideBar,
     assetInfo,

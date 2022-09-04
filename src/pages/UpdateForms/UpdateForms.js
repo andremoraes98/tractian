@@ -8,13 +8,12 @@ import AlertMessage from '../../components/AlertMessage/AlertMessage';
 
 function UpdateForms() {
   const {
-    industryName,
     setAssetInfo,
     assets,
     setShowAlertMessage,
     assetInfo,
   } = useContext(TractianContext);
-  const { id } = useParams();
+  const { id, unit } = useParams();
   const {
     name,
     model,
@@ -41,7 +40,7 @@ function UpdateForms() {
         ...assetInfo,
         name: assetName,
         model: assetModel,
-        owner: industryName,
+        owner: unit,
         status: assetStatus,
         helthLevel: assetHealthy,
         image: assetImage,
@@ -103,13 +102,13 @@ function UpdateForms() {
         </FloatingLabel>
         <FloatingLabel
           controlId="floatingInput"
-          label="Imagem"
+          label="Link da imagem"
           className="m-3"
         >
           <Form.Control
             required
             type="text"
-            placeholder="Imagem"
+            placeholder="Link da imagem"
             value={ assetImage }
             onChange={ ({ target }) => setAssetImage(target.value) }
           />

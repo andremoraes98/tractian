@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
@@ -8,11 +8,11 @@ import './CreateForms.css'
 
 function CreateForms() {
   const {
-    industryName,
     setAssetInfo,
     toggleConfirmMessage,
     createAsset,
   } = useContext(TractianContext);
+  const { unit } = useParams();
   const [assetName, setAssetName] = useState('');
   const [assetModel, setAssetModel] = useState('');
   const [assetStatus, setAssetStatus] = useState('');
@@ -40,7 +40,7 @@ function CreateForms() {
     const createdAsset = {
       name: assetName,
       model: assetModel,
-      owner: industryName,
+      owner: unit,
       status: assetStatus,
       helthLevel: assetHealthy,
       image: assetImage,
@@ -59,7 +59,7 @@ function CreateForms() {
       setAssetInfo(createdAsset);
       createAsset(createdAsset);
       toggleConfirmMessage('criado', true);
-      navigate(`/${industryName}`);
+      navigate(`/${unit}`);
     }
 
     setIsValidated(true);
@@ -124,7 +124,7 @@ function CreateForms() {
       >
         <Form.Control
           required
-          type="text"
+          type="number"
           placeholder="Temperatura Nominal (ºC)"
           value={ temperatureLimit }
           onChange={ ({ target }) => setTemperatureLimit(target.value) }
@@ -138,7 +138,7 @@ function CreateForms() {
       >
         <Form.Control
           required
-          type="text"
+          type="number"
           placeholder="Potência Nominal (kW)"
           value={ energyLimit }
           onChange={ ({ target }) => setEnergyLimit(target.value) }
@@ -152,7 +152,7 @@ function CreateForms() {
       >
         <Form.Control
           required
-          type="text"
+          type="number"
           placeholder="Vibração tolerável (mm/s.RMS)"
           value={ vibrationLimit }
           onChange={ ({ target }) => setVibrationLimit(target.value) }
@@ -161,13 +161,13 @@ function CreateForms() {
       
       <FloatingLabel
         controlId="floatingInput"
-        label="Imagem"
+        label="Link da imagem"
         className="m-3"
       >
         <Form.Control
           required
           type="text"
-          placeholder="Imagem"
+          placeholder="Link da imagem"
           value={ assetImage }
           onChange={ ({ target }) => setAssetImage(target.value) }
         />

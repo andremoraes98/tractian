@@ -10,12 +10,11 @@ function AlertMessage() {
     showAlertMessage,
     setShowAlertMessage, 
     toggleConfirmMessage,
-    industryName,
     assets,
     updateAsset,
     assetInfo,
   } = useContext(TractianContext);
-  const { id } = useParams();
+  const { id, unit } = useParams();
   const navigate = useNavigate();
   const {
     name,
@@ -39,12 +38,15 @@ function AlertMessage() {
     setShowAlertMessage(false);
     updateAsset(assetInfo._id, updatedAset)
     toggleConfirmMessage('atualizado', true);
-    navigate(`/${industryName}`);
+    navigate(`/${unit}`);
   };
 
   return (
-    <Modal show={ showAlertMessage } onHide={ () => setShowAlertMessage(true) }>
-      <Modal.Header closeButton>
+    <Modal
+      show={ showAlertMessage }
+      onHide={ () => setShowAlertMessage(true) }
+    >
+      <Modal.Header>
         <Modal.Title>Tem certeza que deseja prosseguir?</Modal.Title>
       </Modal.Header>
       <Modal.Body>Uma vez confirmada, não há como desfazer as mudanças.</Modal.Body>
