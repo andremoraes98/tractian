@@ -15,7 +15,12 @@ function SideBarContent() {
     setShowSideBar(false);
     setUserLogged({});
     navigate('/');
-  }
+  };
+
+  const editProfile = () => {
+    setShowSideBar(false);
+    navigate(`/${userLogged.user}/edit-profile`);
+  };
 
   return (
     <div
@@ -34,7 +39,12 @@ function SideBarContent() {
       { !(Object.keys(userLogged).length === 0) && <p><strong>Olá, { userLogged.user }!</strong></p> }
       <p>Perguntas frequentes</p>
       <p>Dúvidas? Fale conosco!</p>
-      { !(Object.keys(userLogged).length === 0) && <p>Editar perfil</p> }
+      { !(Object.keys(userLogged).length === 0) &&
+        <p
+          onClick={ editProfile }
+        >
+          Editar perfil
+        </p> }
       { !(Object.keys(userLogged).length === 0) &&
         <p
           id="logout"
