@@ -11,11 +11,25 @@ function DeleteMessage() {
     toggleConfirmMessage,
     deleteAsset,
     assetInfo,
+    deleteUser,
+    userLogged,
+    setUserLogged,
+    setUsers,
   } = useContext(TractianContext);
   const navigate = useNavigate();
   const { unit } = useParams();
 
+  console.log(unit)
+
   const onSuccess = () => {
+    if (!unit) {
+      setShowDeleteMessage(false);
+      deleteUser(userLogged._id);
+      setUserLogged({});
+      setUsers([]);
+      navigate('/');
+      return null
+    }
     deleteAsset(assetInfo._id)
     setShowDeleteMessage(false);
     toggleConfirmMessage('excluído', true);
@@ -25,9 +39,9 @@ function DeleteMessage() {
   return (
     <Modal show={ showDeleteMessage } onHide={ () => setShowDeleteMessage(true) }>
       <Modal.Header>
-        <Modal.Title>Tem certeza que deseja excluir esse ativo?</Modal.Title>
+        <Modal.Title>Tem certeza que deseja excluir esse item?</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Uma vez confirmada, não há como restaurar os dados deste ativo.</Modal.Body>
+      <Modal.Body>Uma vez confirmada, não há como restaurar os dados excluídos.</Modal.Body>
       <Modal.Footer>
         <Button variant="warning" onClick={() => setShowDeleteMessage(false)}>
           Cancelar
