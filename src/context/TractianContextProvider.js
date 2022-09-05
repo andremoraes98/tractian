@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 function TractianContextProvider({ children }) {
   const [users, setUsers] = useState([]);
+  const [userLogged, setUserLogged] = useState({});
   const [showSideBar, setShowSideBar] = useState(false);
   const [assetInfo, setAssetInfo] = useState({});
   const [showConfirmMessage, setShowConfirmMessage] = useState(false);
@@ -22,9 +23,9 @@ function TractianContextProvider({ children }) {
     setConfirmMessage(message);
   };
 
-  const getAssets = async () => {
+  const getAssetsFromUnit = async (unit) => {
     setIsLoading(true);
-    const response = await fetch('https://tractian-bc.herokuapp.com/aset');
+    const response = await fetch(`https://tractian-bc.herokuapp.com/aset/${unit}`);
     const data = await response.json();
     setAssets(data);
     setIsLoading(false);
@@ -76,6 +77,8 @@ function TractianContextProvider({ children }) {
   const context = {
     users,
     getUsers,
+    userLogged,
+    setUserLogged,
     showSideBar,
     setShowSideBar,
     assetInfo,
@@ -85,7 +88,7 @@ function TractianContextProvider({ children }) {
     setShowConfirmMessage,
     toggleConfirmMessage,
     assets,
-    getAssets,
+    getAssetsFromUnit,
     createAsset,
     deleteAsset,
     updateAsset,
