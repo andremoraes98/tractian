@@ -74,6 +74,18 @@ function TractianContextProvider({ children }) {
     setIsLoading(false);
   };
 
+  const updateUser = async (id, user) => {
+    try {
+      await fetch(`https://tractian-bc.herokuapp.com/user/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+      });
+    } catch(e) {
+      console.log(e.message)
+    }
+  };
+
   const context = {
     users,
     getUsers,
@@ -104,6 +116,7 @@ function TractianContextProvider({ children }) {
     setShowEnergyGraphic,
     showVibrationGraphic,
     setShowVibrationGraphic,
+    updateUser,
   };
 
   return(
