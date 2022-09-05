@@ -5,15 +5,13 @@ import { BsPersonCheckFill } from 'react-icons/bs';
 import './Unit.css';
 import TractianContext from '../../context/TractianContext';
 
-function Unit({ credentials: { user, unit } }) {
+function Unit({ credentials }) {
   const { setUserLogged } = useContext(TractianContext);
   const navigate = useNavigate();
+  const { unit, user } = credentials;
 
   const redirectToIndustry = () => {
-    setUserLogged({
-      user,
-      unit,
-    });
+    setUserLogged(credentials);
     navigate(`/${unit}`);
   }
 
