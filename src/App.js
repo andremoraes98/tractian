@@ -11,6 +11,7 @@ import Main from './pages/Main/Main';
 import ReadPage from './pages/ReadPage/ReadPage';
 import UpdateForms from './pages/UpdateForms/UpdateForms';
 import UpdatePage from './pages/UpdatePage/UpdatePage';
+import EditProfile from './pages/EditProfile/EditProfile';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <SideBar />
       <Routes>
         <Route path="/:unit/create" element={ <CreateForms /> }/>
+        <Route path="/:user/edit-profile" element={ <EditProfile /> }/>
         <Route path="/:unit/read/:id" element={ <Graphics /> }/>
         <Route path="/:unit/read" element={ <ReadPage /> }/>
         <Route path="/:unit/update/:id" element={ <UpdateForms /> }/>
