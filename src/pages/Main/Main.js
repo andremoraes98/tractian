@@ -19,7 +19,7 @@ function Main() {
   }, []);
 
   useEffect(() => {
-    const intervalConfirmMessage = setTimeout(() => setReady(true), 1000);
+    const intervalConfirmMessage = setTimeout(() => setReady(true), 1500);
     return () => clearInterval(intervalConfirmMessage)
   });
 
