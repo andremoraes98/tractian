@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import TractianContext from '../../context/TractianContext';
 
 function Header() {
-  const { showSideBar, setShowSideBar } = useContext(TractianContext);
+  const { showSideBar, setShowSideBar, userLogged: { unit } } = useContext(TractianContext);
   return (
     <header className='display-flex'>
-      <Link to="/">
+      <Link to={ `/${unit}` }>
         <img src={ LOGO }/>
       </Link>
       {
