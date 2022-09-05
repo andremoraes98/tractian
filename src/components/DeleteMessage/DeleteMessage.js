@@ -11,25 +11,11 @@ function DeleteMessage() {
     toggleConfirmMessage,
     deleteAsset,
     assetInfo,
-    deleteUser,
-    userLogged,
-    setUserLogged,
-    setUsers,
   } = useContext(TractianContext);
   const navigate = useNavigate();
   const { unit } = useParams();
 
-  console.log(unit)
-
   const onSuccess = () => {
-    if (!unit) {
-      setShowDeleteMessage(false);
-      deleteUser(userLogged._id);
-      setUserLogged({});
-      setUsers([]);
-      navigate('/');
-      return null
-    }
     deleteAsset(assetInfo._id)
     setShowDeleteMessage(false);
     toggleConfirmMessage('excluído', true);
