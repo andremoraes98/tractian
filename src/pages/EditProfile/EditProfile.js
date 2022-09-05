@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import AlertMessage from '../../components/AlertMessage/AlertMessage';
 import TractianContext from '../../context/TractianContext';
 
 function EditProfile() {
-  const { setUserLogged, userLogged: { user, unit } } = useContext(TractianContext);
-  const navigate = useNavigate();
+  const {
+    setUserLogged,
+    userLogged: { _id, user, unit },
+    setShowAlertMessage,
+  } = useContext(TractianContext);
 
   const [userName, setUserName] = useState(user);
   const [workUnit, setWorkUnit] = useState(unit);
@@ -14,6 +17,7 @@ function EditProfile() {
   const handleSubmit = (e) => {
     const form = e.currentTarget;
     const updatedUser = {
+      _id,
       user: userName,
       unit: workUnit,
     }
@@ -24,69 +28,70 @@ function EditProfile() {
     } else {
       e.preventDefault();
       setUserLogged(updatedUser);
-      // createAsset(createdAsset);
-      // toggleConfirmMessage('criado', true);
-      navigate(`/${unit}`);
+      setShowAlertMessage(true);
     }
 
     setIsValidated(true);
   };
 
   return (
-    <Form
-      noValidate
-      validated={ isValidated }
-      onSubmit={ handleSubmit }
-    >
-      <h1 className="title green">Insira as informações do usuário:</h1>
-      <FloatingLabel
-        controlId="floatingInput"
-        label="Nome"
-        className="m-3"
+    <>
+      <Form
+        noValidate
+        validated={ isValidated }
+        onSubmit={ handleSubmit }
       >
-        <Form.Control
-          required
-          type="text"
-          placeholder="Nome"
-          value={ userName }
-          onChange={ ({ target }) => setUserName(target.value) }
-        />
-      </FloatingLabel>
-
-      <FloatingLabel
-        controlId="floatingInput"
-        label="Unidade"
-        className="mb-3 mx-3"
-      >
-        <Form.Control
-          required
-          type="text"
-          placeholder="Unidade"
-          value={ workUnit }
-          onChange={ ({ target }) => setWorkUnit(target.value) }
-        />
-      </FloatingLabel>
-        <div
-          className="d-flex justify-content-around"
+        <h1 className="title green">Insira as informações do usuário:</h1>
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Nome"
+          className="m-3"
         >
-          <div>
-            <Button
-              type="submit"
-              variant="outline-success"
-            >
-              Editar
-            </Button>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Nome"
+            value={ userName }
+            onChange={ ({ target }) => setUserName(target.value) }
+          />
+        </FloatingLabel>
+
+        <FloatingLabel
+          controlId="floatingInput"
+          label="Unidade"
+          className="mb-3 mx-3"
+        >
+          <Form.Control
+            required
+            type="text"
+            placeholder="Unidade"
+            value={ workUnit }
+            onChange={ ({ target }) => setWorkUnit(target.value) }
+          />
+        </FloatingLabel>
+          <div
+            className="d-flex justify-content-around"
+          >
+            <div>
+              <Button
+                type="submit"
+                variant="outline-success"
+              >
+                Editar
+              </Button>
+            </div>
+            <div>
+              <Button
+                type="button"
+                variant="danger"
+              >
+                Excluir usuário
+              </Button>
+            </div>
           </div>
-          <div>
-            <Button
-              type="button"
-              variant="danger"
-            >
-              Excluir usuário
-            </Button>
-          </div>
-        </div>
-    </Form>
+      </Form>
+      <AlertMessage />
+    </>
   )
 }
 
