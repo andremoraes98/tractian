@@ -14,7 +14,7 @@ function Main() {
   useEffect(() => {
     getUsers();
   }, []);
-
+  
   return (
     !isLoading 
     ? (
