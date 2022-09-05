@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Unit from '../../components/Unit/Unit';
 import TractianContext from '../../context/TractianContext';
 import Loading from '../../components/Loading/Loading'
@@ -10,15 +10,24 @@ function Main() {
     getUsers,
     isLoading,
   } = useContext(TractianContext);
+
+  const [ready, setReady] = useState(true);
   
   useEffect(() => {
-    getUsers()
+    getUsers();
+    setReady(false);
   }, []);
 
+  useEffect(() => {
+    const intervalConfirmMessage = setTimeout(() => setReady(true), 1000);
+    return () => clearInterval(intervalConfirmMessage)
+  });
+
+  console.log(users, isLoading && ready)
+
   return (
-    isLoading
-    ? ( <Loading /> )
-    : (
+    (!isLoading && ready)
+    ? (
       <section className="display-flex">
         <h1 className="title">Bem vindo à Industria Freios Supremos!</h1>
         <h3 className="subtitle">Escolha o seu usuário:</h3>
@@ -27,6 +36,7 @@ function Main() {
         }
       </section>
     )
+    : <Loading />
   );
 }
 
