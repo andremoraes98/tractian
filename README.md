@@ -1,5 +1,11 @@
 # TRACTIAN MONITORING APP
 
+![Demonstração da aplicação 1](./src/images/APP-1.gif)
+![Demonstração da aplicação 2](./src/images/APP-2.gif)
+![Demonstração da aplicação 3](./src/images/APP-3.gif)
+![Demonstração da aplicação 4](./src/images/APP-4.gif)
+![Demonstração da aplicação 5](./src/images/APP-5.gif)
+
 ## Descrição :memo:
 
 Esta aplicação tem como objetivo gerenciar dados de ativos de uma empresa.
@@ -7,6 +13,8 @@ Esta aplicação tem como objetivo gerenciar dados de ativos de uma empresa.
 Através da interface, é possível gerar gráficos, adicionar novos ativos para monitorar, excluir e editar ativos, de acordo com a necessidade do usuário.
 
 Todos os dados dos ativos e dos usuários são gerenciados em um banco de dados.
+
+Ela está hospedada em um domínio, através do Vercel, e pode ser acessada por este link [aqui](https://tractian-ft.vercel.app/).
 
 ---
 
