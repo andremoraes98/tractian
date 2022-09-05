@@ -13,6 +13,9 @@ function AlertMessage() {
     assets,
     updateAsset,
     assetInfo,
+    updateUser,
+    userLogged,
+    setUserLogged,
   } = useContext(TractianContext);
   const { id, unit } = useParams();
   const navigate = useNavigate();
@@ -35,6 +38,14 @@ function AlertMessage() {
   }
 
   const onSuccess = () => {
+    if (!unit) {
+      setShowAlertMessage(false);
+      updateUser(userLogged._id, userLogged);
+      setUserLogged({});
+      navigate('/');
+      return null
+    }
+
     setShowAlertMessage(false);
     updateAsset(assetInfo._id, updatedAset)
     toggleConfirmMessage('atualizado', true);
