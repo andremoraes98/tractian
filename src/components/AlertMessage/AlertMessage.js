@@ -15,7 +15,6 @@ function AlertMessage() {
     assetInfo,
     updateUser,
     userLogged,
-    setUserLogged,
   } = useContext(TractianContext);
   const { id, unit } = useParams();
   const navigate = useNavigate();
@@ -41,8 +40,7 @@ function AlertMessage() {
     if (!unit) {
       setShowAlertMessage(false);
       updateUser(userLogged._id, userLogged);
-      setUserLogged({});
-      navigate('/');
+      navigate(`/${userLogged.unit}`);
       return null
     }
 
