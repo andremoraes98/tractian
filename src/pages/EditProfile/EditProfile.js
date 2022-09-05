@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import AlertMessage from '../../components/AlertMessage/AlertMessage';
+import DeleteMessage from '../../components/DeleteMessage/DeleteMessage';
 import TractianContext from '../../context/TractianContext';
 
 function EditProfile() {
@@ -8,7 +10,9 @@ function EditProfile() {
     setUserLogged,
     userLogged: { _id, user, unit },
     setShowAlertMessage,
+    setShowDeleteMessage,
   } = useContext(TractianContext);
+  const navigate = useNavigate();
 
   const [userName, setUserName] = useState(user);
   const [workUnit, setWorkUnit] = useState(unit);
@@ -75,7 +79,7 @@ function EditProfile() {
             <div>
               <Button
                 type="submit"
-                variant="outline-success"
+                variant="success"
               >
                 Editar
               </Button>
@@ -84,13 +88,24 @@ function EditProfile() {
               <Button
                 type="button"
                 variant="danger"
+                onClick={ () => setShowDeleteMessage(true)}
               >
                 Excluir usuário
+              </Button>
+            </div>
+            <div>
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={ () => navigate(-1)}
+              >
+                Voltar
               </Button>
             </div>
           </div>
       </Form>
       <AlertMessage />
+      <DeleteMessage />
     </>
   )
 }

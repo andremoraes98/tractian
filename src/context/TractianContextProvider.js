@@ -52,7 +52,7 @@ function TractianContextProvider({ children }) {
     } catch(e) {
       console.log(e.message)
     }
-  }
+  };
 
   const updateAsset = async (id, asset) => {
     try {
@@ -80,6 +80,17 @@ function TractianContextProvider({ children }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
+      });
+    } catch(e) {
+      console.log(e.message)
+    }
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      await fetch(`https://tractian-bc.herokuapp.com/user/${id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
       });
     } catch(e) {
       console.log(e.message)
@@ -117,6 +128,8 @@ function TractianContextProvider({ children }) {
     showVibrationGraphic,
     setShowVibrationGraphic,
     updateUser,
+    deleteUser,
+    setUsers,
   };
 
   return(
