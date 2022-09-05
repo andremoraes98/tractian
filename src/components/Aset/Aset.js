@@ -46,7 +46,7 @@ function Aset({ id, aset, color }) {
     >
       <p>{ `${id} - ${model}` } <strong>{ name }</strong>:</p>
       <div id="aset-image">
-        <img src={ image }/>
+        <img src={ image } alt="Asset-Logo"/>
       </div>
       <p>{ `${statusHealth[status]} com ${helthLevel}% de saúde.` }</p>
     </div>
