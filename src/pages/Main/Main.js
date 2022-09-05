@@ -16,8 +16,9 @@ function Main() {
   }, []);
   
   return (
-    !isLoading 
-    ? (
+    isLoading 
+    ? <Loading />
+    : (
       <section className="display-flex">
         <h1 className="title">Bem vindo à Industria Freios Supremos!</h1>
         <h3 className="subtitle">Escolha o seu usuário:</h3>
@@ -26,7 +27,6 @@ function Main() {
         }
       </section>
     )
-    : <Loading />
   );
 }
 
