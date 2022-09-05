@@ -10,7 +10,6 @@ function EditProfile() {
     setUserLogged,
     userLogged: { _id, user, unit },
     setShowAlertMessage,
-    setShowDeleteMessage,
   } = useContext(TractianContext);
   const navigate = useNavigate();
 
@@ -82,15 +81,6 @@ function EditProfile() {
                 variant="success"
               >
                 Editar
-              </Button>
-            </div>
-            <div>
-              <Button
-                type="button"
-                variant="danger"
-                onClick={ () => setShowDeleteMessage(true)}
-              >
-                Excluir usuário
               </Button>
             </div>
             <div>
