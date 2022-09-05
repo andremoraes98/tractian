@@ -6,10 +6,15 @@ import TractianContext from '../../context/TractianContext';
 import './ReadPage.css'
 
 function ReadPage() {
-  const { assets, getAssets, isLoading } = useContext(TractianContext);
+  const {
+    assets,
+    getAssetsFromUnit,
+    isLoading,
+    userLogged: { unit },
+  } = useContext(TractianContext);
 
   useEffect(() => {
-    getAssets();
+    getAssetsFromUnit(unit);
   }, []);
 
   return (
@@ -20,7 +25,9 @@ function ReadPage() {
             <h1 className="title blue">Selecione o ativo que deseja <strong>Monitorar</strong>:</h1>
             {
               assets.length === 0
-                ? <NoAsset />
+                ? <NoAsset
+                  color="blue"
+                />
                 : (
                   <div
                     id="assets"

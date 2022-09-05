@@ -6,10 +6,15 @@ import NoAsset from '../../components/NoAset/NoAsset';
 import './UpdatePage.css';
 
 function UpdatePage() {
-  const { assets, getAssets, isLoading } = useContext(TractianContext);
+  const {
+    assets,
+    getAssetsFromUnit,
+    isLoading,
+    userLogged: { unit },
+  } = useContext(TractianContext);
 
   useEffect(() => {
-    getAssets();
+    getAssetsFromUnit(unit);
   }, []);
 
   return (
@@ -20,7 +25,9 @@ function UpdatePage() {
           <h1 className="title green">Selecione o ativo que deseja <strong>Editar</strong>:</h1>
           {
             assets.length === 0
-              ? <NoAsset />
+              ? <NoAsset
+                  color="green"
+                />
               : (
                 <div
                   id="assets"
